@@ -1,0 +1,65 @@
+{
+/*
+	 // Place your snippets for PHP here. Each snippet is defined under a snippet name and has a prefix, body and 
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+
+    "Var Dump":{
+        "prefix": "dump",
+        "body" : [
+            "?>\n<pre><?php var_dump($1); ?></pre>\n<?php"
+        ],
+        "description": "Open and close var dump" 
+    },
+    
+    "WP Filter":{
+        "prefix": "wpfilter",
+        "body" : [
+            "global $wp_filter; ?>",
+            "   <pre>",
+            "       <?php var_dump($wp_filter['$1']); ?>",
+            "   </pre> "
+        ],
+        "description": "Shows WP Filter" 
+    },
+    
+    "ACF Field":{
+        "prefix": "field",
+        "body" : [
+            "get_field(' $1' );"
+        ],
+        "description": "Get field for ACF" 
+    },
+    "ACF Sub Field":{
+        "prefix": "sub",
+        "body" : [
+            "the_sub_field(' $1' );"
+        ],
+        "description": "Get sub-field for ACF" 
+    },
+    "ACF Repeater Field" : {
+        "prefix": "repeater",
+        "body": [
+            "if ( have_rows('$1') ):",
+            "   // loop through the rows of data",
+            "   while ( have_rows('$1') ) : the_row();",
+            "   $2",
+            "",
+            "   endwhile;",
+            "else :",
+            "",
+            "endif;"   
+        ],
+        "description": "ACF Repeater template"
+    }
+}
